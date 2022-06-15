@@ -1,0 +1,28 @@
+@using Dishes.Models
+@model Dish
+
+
+  <a href="/dishes/all">Home</a>
+  <div class="d-flex flex-column align-items-center border-bottom pb-5">
+    <h1>@Model.DishName</h1>
+    <p>@Model.ChefName</p>
+  </div>
+  <div>
+    <p>@Model.Description</p>
+    <p>Calories: @Model.Calories</p>
+    <p>Tastiness: @Model.Tastiness</p>
+  </div>
+
+  <div class="d-flex">
+    <form asp-controller="Dishes" asp-action="Delete" asp-route-dishID="@Model.DishId" method="post">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+
+    <a class="btn btn-primary"
+    asp-controller="Dishes"
+    asp-action="Edit"
+    asp-route-dishID="@Model.DishId"
+    >
+    Edit
+    </a>
+  </div>

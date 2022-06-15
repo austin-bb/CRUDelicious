@@ -1,0 +1,23 @@
+@using Dishes.Models
+@model IEnumerable<Dish>
+
+<h1 class="text-center m-5">Welcome To CRUDelicious</h1>
+
+<div class="d-flex justify-content-between">
+  <h3 class="border-bottom p-3">Check out some recent dishes!</h3>
+  <a href="/dishes/new">Add a Dish</a>
+</div>
+
+@foreach (Dish dish in Model)
+{
+  <p class="m-3 h5">
+    <a 
+    asp-controller="Dishes"
+    asp-action="Detail"
+    asp-route-DishID="@dish.DishId"
+    >
+    @dish.DishName
+    </a>
+    by @dish.ChefName
+  </p>
+}
